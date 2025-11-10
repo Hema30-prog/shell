@@ -8,7 +8,7 @@ set -x
 # for a new project. It also creates a README file with the
 # project name and a brief description of the project.
 # Then it unzips the raw data provided by the client.
-# Script updated by Hema Dawonauth
+# Script updated by Hema Dawonauth to copy the server logs from data/raw to data/processed/server_logs directory
 
 if [ -d newproject ]; then
   echo "Recreating the newproject directory"
