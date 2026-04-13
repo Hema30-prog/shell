@@ -8,6 +8,7 @@ set -x
 # for a new project. It also creates a README file with the
 # project name and a brief description of the project.
 # Then it unzips the raw data provided by the client.
+# Script updated by Hema Dawonauth to copy the server logs from data/raw to data/processed/server_logs directory
 
 if [ -d newproject ]; then
   echo "Recreating the newproject directory"
@@ -31,11 +32,11 @@ unzip -q rawdata.zip
 mkdir data
 
 # 2. Move the ./rawdata directory to ./data/raw
+mv ./rawdata ./data/raw
 
 mv ./rawdata ./data/raw
 
 # 3. List the contents of the ./data/raw directory
-
 ls ./data/raw
 
 # 4. Create the directory ./data/processed, 
@@ -57,7 +58,7 @@ cp ./data/raw/*event*.log ./data/processed/event_logs/
 rm ./data/raw/*ipaddr* ./data/processed/user_logs/*ipaddr*
 
 # 8. Create a file named ./data/inventory.txt that lists all the files in the subfolders of ./data/processed
-find ./data/processed -type f > ./data/inventory.txt
+ls -R ./data/processed > ./data/inventory.txt
 
 ###########################################
 
